@@ -1,6 +1,6 @@
-def jenkins = Jenkins.getInstance()
-def job = jenkins.getItem(jobName)
-def bld = job.getBuildByNumber(buildNumber)
-bld.getLog(100) // number of lines to read
-bld.getLogFile()
-bld.getLogReader() 
+def call(int lines) {
+    def jenkins = Jenkins.getInstance()
+    def job = jenkins.getItem(jobName)
+    def bld = job.getBuildByNumber(buildNumber)
+    return bld.getLog(lines)
+}
