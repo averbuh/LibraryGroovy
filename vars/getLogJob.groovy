@@ -1,6 +1,6 @@
-def call(int lines) {
+def call(int lines, String jobName, int buildNumber) {
     def jenkins = Jenkins.getInstance()
-    def job = jenkins.getItem(${JOB_NAME})
-    def bld = job.getBuildByNumber(${BUILD_NUMBER})
+    def job = jenkins.getItem(jobName)
+    def bld = job.getBuildByNumber(buildNumber)
     return bld.getLog(lines)
 }
